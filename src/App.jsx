@@ -3,6 +3,7 @@ import MenuBar from "./components/MenuBar";
 import SideBar from "./components/SideBar";
 import ChatPannel from "./components/ChatPannel";
 import ModeContextProvider from "./contexts/ModeContextProvider";
+import Background from "./components/Background";
 
 function App() {
   const [showSideBar, setShowSideBar] = useState(true);
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <ModeContextProvider>
-      <main className="app flex">
+      <Background>
         <div className="flex">
           <MenuBar
             showSideBar={showSideBar}
@@ -31,7 +32,7 @@ function App() {
           />
           <ChatPannel />
         </div>
-      </main>
+      </Background>
     </ModeContextProvider>
   );
 }

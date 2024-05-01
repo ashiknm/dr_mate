@@ -6,8 +6,15 @@
 .app{
     height : 100vh;
     width : 100vw;
-    background: radial-gradient(circle at center, #212443, #191b21 );
     overflow : hidden;
+}
+
+.mode1-background{
+    background: radial-gradient(circle at center, #212443, #191b21 );
+}
+
+.mode2-background{
+    background-color : #EEF0F9;
 }
 
 
