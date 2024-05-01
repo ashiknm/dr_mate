@@ -1,10 +1,14 @@
-import { createContext,  useState } from "react";
+import { createContext,  useEffect,  useState } from "react";
 
 export const ModeContext = createContext(null);
 
 
 export default function ModeContextProvider({children}) {
-  const [mode, setMode] = useState("mode1");
+  const [mode, setMode] = useState(localStorage.getItem("mode") || "mode1");
+
+  useEffect(()=>{
+    localStorage.setItem("mode", mode);
+  }, [mode]);
 
   const colors = {
     mode1: {
@@ -24,7 +28,12 @@ export default function ModeContextProvider({children}) {
   };
 
   const toggleMode = () => {
-    setMode(mode === "mode1" ? "mode2" : "mode1");
+    if(mode === "mode1"){
+        setMode("mode2");
+    }else{
+        setMode("mode1");
+    }
+    
   };
 
 
